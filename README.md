@@ -14,7 +14,8 @@ This solution contains the following projects below:
 
   # How To setup the Database:
 
-- You need to configure the ConnString path in the **appsettings.json** inside the Web Api project, add your server ip and user credentials, you can set any database name, it will be created automatically.
+- You need to configure the ConnString path in the **appsettings.json** inside the Web Api project, add your server ip and user credentials, you can set any database name, it will be created automatically. Here is the default configuration: ** "DatabaseConnection": "Server=*********;Database=TscTest;Trusted_Connection=false;User=*********;Password=***********;"**
+
 - Open the console and navigate into the DAL project, then you need to execute the next command:
 
 > dotnet ef database update
