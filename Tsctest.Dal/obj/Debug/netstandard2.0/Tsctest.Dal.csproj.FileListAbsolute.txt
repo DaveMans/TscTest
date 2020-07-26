@@ -1,0 +1,12 @@
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\bin\Debug\netstandard2.0\Tsctest.Dal.deps.json
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\bin\Debug\netstandard2.0\Tsctest.Dal.dll
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\bin\Debug\netstandard2.0\Tsctest.Dal.pdb
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\bin\Debug\netstandard2.0\Tsctest.Core.dll
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\bin\Debug\netstandard2.0\Tsctest.Core.pdb
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\obj\Debug\netstandard2.0\Tsctest.Dal.csprojAssemblyReference.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\obj\Debug\netstandard2.0\Tsctest.Dal.AssemblyInfoInputs.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\obj\Debug\netstandard2.0\Tsctest.Dal.AssemblyInfo.cs
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\obj\Debug\netstandard2.0\Tsctest.Dal.csproj.CoreCompileInputs.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\obj\Debug\netstandard2.0\Tsctest.Dal.csproj.CopyComplete
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\obj\Debug\netstandard2.0\Tsctest.Dal.dll
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Dal\obj\Debug\netstandard2.0\Tsctest.Dal.pdb
