@@ -10,7 +10,8 @@ export class FetchCountryData extends Component {
     }
 
     componentDidMount() {
-        axios.get("https://localhost:44313/country").then(response => {
+        const token = sessionStorage.getItem('token');
+        axios.get("https://localhost:44313/country", { headers: { "Authorization": `Bearer ${token}` } }).then(response => {
             this.setState({
                 CountryData: response.data
             });
@@ -20,7 +21,7 @@ export class FetchCountryData extends Component {
     render() {
         return (
             <section>
-                <h1>Products List</h1>
+                <h1>Countries</h1>
                 <div>
                     <table>
                         <thead><tr><th>Country</th><th>Alpha2</th><th>Alpah3</th><th>Numeric Code</th></tr></thead>

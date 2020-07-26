@@ -73,7 +73,7 @@ namespace Tsctest.WebApi.Controllers
         /// <param name="countryId">PK of the country</param>
         /// <param name="country">Country entity</param>
         /// <returns></returns>
-        [HttpPut("{countryId}")]
+        [HttpPut]
         public async Task<IActionResult> PutCountry(int countryId, Country country)
         {
             if (countryId != country.CountryId)

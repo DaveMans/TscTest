@@ -42,14 +42,14 @@ function App() {
                     <div className="header">
                         <NavLink exact activeClassName="active" to="/">Home</NavLink>
                         <NavLink activeClassName="active" to="/login">Login</NavLink><small>(Access without token only)</small>
-                        <NavLink activeClassName="active" to="/fetchdata">Countries</NavLink><small>(Access with token only)</small>
+                        <NavLink activeClassName="active" to="/fetchcountrydata">Countries</NavLink><small>(Access with token only)</small>
                     </div>
                     <div className="content">
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <PublicRoute path="/login" component={Login} />
                             <PrivateRoute path="/counter" component={Counter} />
-                            <PrivateRoute path="/fetchdata" component={FetchCountryData} />
+                            <PrivateRoute path="/fetchcountrydata" component={FetchCountryData} />
                         </Switch>
                     </div>
                 </div>

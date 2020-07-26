@@ -2,7 +2,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -23,13 +22,18 @@ namespace Tsctest.WebApi.Controllers
         }
 
 
+        /// <summary>
+        /// Login process 
+        /// </summary>
+        /// <param name="user">receives a user-type parameter</param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [Route("[action]")]
         public IActionResult Login([FromBody] UserModel user)
         {
             //TODO: this should be async
-            var _userInfo = AutenticateUser(user.User, user.Password);
+            var _userInfo = AuthenticateUser(user.User, user.Password);
             if (_userInfo != null)
             {
                 return Ok(new { token = GenerarTokenJWT(_userInfo) });
@@ -40,13 +44,22 @@ namespace Tsctest.WebApi.Controllers
             }
         }
 
-        private User AutenticateUser(string user, string password)
+
+        /// <summary>
+        /// Internal method to Authenticate the user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        private User AuthenticateUser(string user, string password)
         {
             //TODO: this should be a REAL db request to find the user
             //TODO: this should be async
 
+
+            //Dummy user from the appsettings.json
             var dummyUser = _configuration["DummyLogin:User"];
-            var dummyPassword = _configuration["DummyLogin:User"];
+            var dummyPassword = _configuration["DummyLogin:Password"];
 
             if (user == dummyUser && dummyPassword == password)
             {
@@ -63,6 +76,11 @@ namespace Tsctest.WebApi.Controllers
             return null;
         }
 
+        /// <summary>
+        /// Internal method to create the session JWT token
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private string GenerarTokenJWT(User user)
         {
             var _symmetricSecurityKey = new SymmetricSecurityKey(
@@ -87,8 +105,7 @@ namespace Tsctest.WebApi.Controllers
                     audience: _configuration["JWT:Audience"],
                     claims: _Claims,
                     notBefore: DateTime.UtcNow,
-                    // Exipra a la 24 horas.
-                    expires: DateTime.UtcNow.AddMinutes(30)
+                    expires: DateTime.UtcNow.AddMinutes(30) //Just alive for 30 minutes
                 );
 
             var _Token = new JwtSecurityToken(
@@ -98,6 +115,12 @@ namespace Tsctest.WebApi.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(_Token);
         }
+
+        /// <summary>
+        /// Check if the provided token still valid
+        /// </summary>
+        /// <param name="token">String token (stored in session)</param>
+        /// <returns></returns>
 
         [HttpPost]
         [AllowAnonymous]
