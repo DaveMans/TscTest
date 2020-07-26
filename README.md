@@ -6,7 +6,7 @@ This solutions contains hte next .net core projects:
 
 - Core (DLL)
 - Dal (DLL)
-- Test
+- Tests (XUnit)
 - Web Api
 - Web App (React)
 
