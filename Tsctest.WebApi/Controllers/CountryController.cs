@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -12,7 +13,7 @@ namespace Tsctest.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    //[Authorize]
+    [Authorize]
     public class CountryController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,6 +23,12 @@ namespace Tsctest.WebApi.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Method that retrieves all the countries using paging 
+        /// </summary>
+        /// <param name="page">1</param>
+        /// <param name="pageSize">25</param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult<List<Country>> GetCountries(int page = 1, int pageSize = 25)
         {
@@ -44,8 +51,11 @@ namespace Tsctest.WebApi.Controllers
             return data.Results.ToList();
         }
 
-
-        // GET: api/Country/5 
+        /// <summary>
+        /// Get country by Primary Key
+        /// </summary>
+        /// <param name="countryId"></param>
+        /// <returns></returns>
         [HttpGet("{countryId}")]
         public async Task<ActionResult<Country>> GetByCountryId(int countryId)
         {
@@ -57,8 +67,12 @@ namespace Tsctest.WebApi.Controllers
             return country;
         }
 
-
-
+        /// <summary>
+        /// Method to update the complete country entity
+        /// </summary>
+        /// <param name="countryId">PK of the country</param>
+        /// <param name="country">Country entity</param>
+        /// <returns></returns>
         [HttpPut("{countryId}")]
         public async Task<IActionResult> PutCountry(int countryId, Country country)
         {
@@ -85,6 +99,11 @@ namespace Tsctest.WebApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Method to create a new country
+        /// </summary>
+        /// <param name="country">Country entity</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Country>> CreateCountry(Country country)
         {
@@ -93,7 +112,11 @@ namespace Tsctest.WebApi.Controllers
             return CreatedAtAction("GetUser", new { countryId = country.CountryId }, country);
         }
 
-        // DELETE: api/Users/5 
+        /// <summary>
+        /// Deletes the country by id (PK)
+        /// </summary>
+        /// <param name="countryId"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Country>> DeleteCountry(int countryId)
         {

@@ -54,7 +54,7 @@ namespace Tsctest.WebApi
                 {
                     document.Info.Version = "v1";
                     document.Info.Title = "Tsc Test";
-                    document.Info.Description = ".Net Core Web Api for the TSC Technical Test";
+                    document.Info.Description = ".Net Core Web Api for the TSC Technical Evaluation";
                     document.Info.Contact = new NSwag.OpenApiContact
                     {
                         Name = "R. David Mansilla",
@@ -66,7 +66,6 @@ namespace Tsctest.WebApi
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -74,9 +73,9 @@ namespace Tsctest.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthentication();    
+            app.UseAuthentication();
 
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
 

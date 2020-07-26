@@ -1,9 +1,9 @@
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\bin\Debug\netstandard2.0\Tsctest.Core.deps.json
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\bin\Debug\netstandard2.0\Tsctest.Core.dll
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\bin\Debug\netstandard2.0\Tsctest.Core.pdb
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\obj\Debug\netstandard2.0\Tsctest.Core.csprojAssemblyReference.cache
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\obj\Debug\netstandard2.0\Tsctest.Core.AssemblyInfoInputs.cache
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\obj\Debug\netstandard2.0\Tsctest.Core.AssemblyInfo.cs
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\obj\Debug\netstandard2.0\Tsctest.Core.csproj.CoreCompileInputs.cache
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\obj\Debug\netstandard2.0\Tsctest.Core.dll
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\obj\Debug\netstandard2.0\Tsctest.Core.pdb
-C:\Users\rdavi\source\repos\Tsctest\Tsctest.Core\obj\Debug\netstandard2.0\Tsctest.Core.csprojAssemblyReference.cache

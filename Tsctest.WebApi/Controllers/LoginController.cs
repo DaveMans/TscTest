@@ -12,7 +12,7 @@ using Tsctest.WebApi.Model;
 namespace Tsctest.WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class LoginController : Controller
     {
         private readonly IConfiguration _configuration;
@@ -22,13 +22,14 @@ namespace Tsctest.WebApi.Controllers
             _configuration = configuration;
         }
 
-       
-         // POST: api/Login
+
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login([FromBody] UserModel user)
+        [Route("[action]")]
+        public IActionResult Login([FromBody] UserModel user)
         {
-            var _userInfo = await AutenticarUsuarioAsync(user.User, user.Password);
+            //TODO: this should be async
+            var _userInfo = AutenticateUser(user.User, user.Password);
             if (_userInfo != null)
             {
                 return Ok(new { token = GenerarTokenJWT(_userInfo) });
@@ -39,33 +40,31 @@ namespace Tsctest.WebApi.Controllers
             }
         }
 
-        // COMPROBAMOS SI EL USUARIO EXISTE EN LA BASE DE DATOS 
-        private async Task<User> AutenticarUsuarioAsync(string user, string password)
+        private User AutenticateUser(string user, string password)
         {
-            // AQUÍ LA LÓGICA DE AUTENTICACIÓN //
+            //TODO: this should be a REAL db request to find the user
+            //TODO: this should be async
 
-            // Supondremos que el Usuario existe en la Base de Datos.
-            // Retornamos un objeto del tipo UsuarioInfo, con toda
-            // la información del usuario necesaria para el Token.
-            return new User()
+            var dummyUser = _configuration["DummyLogin:User"];
+            var dummyPassword = _configuration["DummyLogin:User"];
+
+            if (user == dummyUser && dummyPassword == password)
             {
-                // Id del Usuario en el Sistema de Información (BD)
-                Id = 1,
-                FirstName = "David",
-                LastName = "Mansilla",
-                Email = "rdavidmansilla@gmail.com",
-                Role = "Administrator"
-            };
+                return new User()
+                {
+                    Id = 1,
+                    FirstName = "David",
+                    LastName = "Mansilla",
+                    Email = "rdavidmansilla@gmail.com",
+                    Role = "Administrator"
+                };
+            }
 
-            // Supondremos que el Usuario NO existe en la Base de Datos.
-            // Retornamos NULL.
-            //return null;
+            return null;
         }
 
-        // GENERAMOS EL TOKEN CON LA INFORMACIÓN DEL USUARIO
         private string GenerarTokenJWT(User user)
         {
-            // CREAMOS EL HEADER //
             var _symmetricSecurityKey = new SymmetricSecurityKey(
                     Encoding.UTF8.GetBytes(_configuration["JWT:SecretKey"])
                 );
@@ -74,7 +73,6 @@ namespace Tsctest.WebApi.Controllers
                 );
             var _Header = new JwtHeader(_signingCredentials);
 
-            // CREAMOS LOS CLAIMS //
             var _Claims = new[] {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
@@ -84,7 +82,6 @@ namespace Tsctest.WebApi.Controllers
                 new Claim(ClaimTypes.Role, user.Role)
             };
 
-            // CREAMOS EL PAYLOAD //
             var _Payload = new JwtPayload(
                     issuer: _configuration["JWT:Issuer"],
                     audience: _configuration["JWT:Audience"],
@@ -94,13 +91,42 @@ namespace Tsctest.WebApi.Controllers
                     expires: DateTime.UtcNow.AddMinutes(30)
                 );
 
-            // GENERAMOS EL TOKEN //
             var _Token = new JwtSecurityToken(
                     _Header,
                     _Payload
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(_Token);
-        }        
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("[action]")]
+        public bool ValidateCurrentToken([FromBody] TokenModel token)
+        {
+            var mySecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JWT:SecretKey"]));
+
+            var myIssuer = _configuration["JWT:Issuer"];
+            var myAudience = _configuration["JWT:Audience"];
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            try
+            {
+                tokenHandler.ValidateToken(token.Token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = myIssuer,
+                    ValidAudience = myAudience,
+                    IssuerSigningKey = mySecurityKey
+                }, out SecurityToken validatedToken);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

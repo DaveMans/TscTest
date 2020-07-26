@@ -1,0 +1,4 @@
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Test\obj\Debug\netcoreapp3.1\Tsctest.Test.csprojAssemblyReference.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Test\obj\Debug\netcoreapp3.1\Tsctest.Test.AssemblyInfoInputs.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Test\obj\Debug\netcoreapp3.1\Tsctest.Test.AssemblyInfo.cs
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.Test\obj\Debug\netcoreapp3.1\Tsctest.Test.csproj.CoreCompileInputs.cache
