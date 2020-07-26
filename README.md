@@ -1,8 +1,10 @@
 # TscTest
 
-This Repository related about the **TSC technical evaluation (JOB)**
+This Repository contains a solution made for the **TSC technical evaluation (JOB)** 
 
-This solutions contains hte next .net core projects:
+Requirement: The creation of a REST JSON API is requested, for country administration https://en.wikipedia.org/wiki/ISO_3166-1 and its subdivisions.
+
+This solution contains the following projects below:
 
 - Core (DLL)
 - Dal (DLL)
