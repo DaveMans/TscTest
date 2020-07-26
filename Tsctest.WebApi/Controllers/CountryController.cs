@@ -109,7 +109,7 @@ namespace Tsctest.WebApi.Controllers
         {
             _context.Countries.Add(country);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("GetUser", new { countryId = country.CountryId }, country);
+            return country;
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Tsctest.Core.Models;
 using Tsctest.Dal;
 using Tsctest.Dal.PagingBase;
@@ -29,7 +30,21 @@ namespace Tsctest.WebApi.Controllers
         [HttpGet]
         public ActionResult<List<SubDivision>> GetSubDivisions(int page = 1, int pageSize = 25)
         {
-            return _context.SubDivisions.GetPaged(page, pageSize).Results.ToList();
+            //TODO: this should by async
+            var data = _context.SubDivisions.GetPaged(page, pageSize);
+
+            var metadata = new
+            {
+                data.PageCount,
+                data.PageSize,
+                data.CurrentPage,
+                data.FirstRowOnPage,
+                data.LastRowOnPage,
+            };
+
+            Response.Headers.Add("X-Pagination-Details", JsonConvert.SerializeObject(metadata));
+            
+            return data.Results.ToList();
         }
 
         /// <summary>

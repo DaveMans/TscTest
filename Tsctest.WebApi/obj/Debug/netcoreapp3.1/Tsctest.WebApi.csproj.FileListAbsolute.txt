@@ -1,3 +1,9 @@
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.csprojAssemblyReference.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.AssemblyInfoInputs.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.AssemblyInfo.cs
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -80,12 +86,6 @@ C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\bin\Debug\netcoreapp3.1\Tscte
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\bin\Debug\netcoreapp3.1\Tsctest.Dal.dll
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\bin\Debug\netcoreapp3.1\Tsctest.Core.pdb
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\bin\Debug\netcoreapp3.1\Tsctest.Dal.pdb
-C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.csprojAssemblyReference.cache
-C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.AssemblyInfoInputs.cache
-C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.AssemblyInfo.cs
-C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.csproj.CoreCompileInputs.cache
-C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\Tsctest.WebApi.csproj.CopyComplete
 C:\Users\rdavi\source\repos\Tsctest\Tsctest.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\Tsctest.WebApi.StaticWebAssets.Manifest.cache
